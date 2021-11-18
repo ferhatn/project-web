@@ -2,8 +2,31 @@
 <html>
 <head>
     <title>Movies!</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
 </head>
 <body>
     <h1>Movie Recommendations</h1>
 </body>
+<div class="col-lg-8 mx-auto p-3 py-md-5">
+    <main>
+        <section>
+            <h1 class="pb-3">Movie Recommendations</h1>
+            <p>Choose the movies you like!</p>
+
+        </section>
+        <form id="movieForm" class="my-5">
+            <div class="form-check">
+                <input type="checkbox" name="their_movies" value="1" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">FilmA 4.5</label>
+            </div>
+            <button type="submit" class="btn btn-primary my-5">Recommend!</button>
+        </form>
+        <section id="recommendations">
+            <h3>The Recommendations</h3>
+            <ol id="responses"></ol>
+        </section>
+    </main>
+</div>
 </html>
