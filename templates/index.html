@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Movie Recommendations</h1>
-</body>
+
 <div class="col-lg-8 mx-auto p-3 py-md-5">
     <main>
         <section>
@@ -35,4 +35,29 @@
         </section>
     </main>
 </div>
+
+<script type="text/javascript">
+    $('#recommendations').toggle();
+        
+    $('#movieForm').on('submit', function(e){
+        e.preventDefault();
+        $.ajax({
+            url: "{{api_url}}/api/v1/sample/movies/recommend",
+            type: "GET",
+            data: $("#movieForm").serialize(),
+            success: data => {
+                $('#responses').empty();
+                $('#recommendations').toggle();
+        
+                    Object
+                    .entries(data['movies'])
+                    .sort( (l, r) => r[1] - l[1] )
+                    .forEach(([movie, rating], _) => 
+                        $('#responses').append(`<li>${movie} ${rating * data['score']}% </li>`)
+                    )
+            }
+        });
+    }); 
+    </script>   
+</body>
 </html>
