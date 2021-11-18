@@ -36,19 +36,19 @@
     </main>
 </div>
 
+
 <script type="text/javascript">
-    $('#recommendations').toggle();
-        
+
     $('#movieForm').on('submit', function(e){
         e.preventDefault();
         $.ajax({
-            url: "{{api_url}}/api/v1/sample/movies/recommend",
-            type: "GET",
+            url: "{{api_url}}/api/v1/movies/recommend",
+            type: "POST",
             data: $("#movieForm").serialize(),
             success: data => {
                 $('#responses').empty();
-                $('#recommendations').toggle();
-        
+                
+    
                     Object
                     .entries(data['movies'])
                     .sort( (l, r) => r[1] - l[1] )
@@ -58,6 +58,8 @@
             }
         });
     }); 
-    </script>   
+    </script>
+    
+    
 </body>
 </html>
