@@ -7,7 +7,6 @@ import sqlite3
 app = Flask(__name__)
 
 @app.route("/")
-@app.route("/")
 def movie():
     with sqlite3.connect("db/movie.db") as c:
         return render_template('index.html', suggests=c.execute("""
